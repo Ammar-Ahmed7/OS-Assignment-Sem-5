@@ -1,5 +1,4 @@
 #include <stdio.h>
-#include <conio.h>
 #include <stdlib.h>
 #include <stdbool.h>
 
@@ -46,6 +45,7 @@ void execute() {
     }
     else if(operationCode == 11){
         printf("The number loaded from the specific memory location is : %d",arr[operand]);
+
     }
     else if(operationCode==20){
         accumulator=arr[operand];
@@ -115,7 +115,7 @@ int main() {
         store();
         display();
         execute();
-        getche();
+        getchar();
     } while (instructionCounter != 99);
     return 0;
 }
