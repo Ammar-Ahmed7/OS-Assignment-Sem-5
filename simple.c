@@ -71,9 +71,24 @@ void execute() {
         accumulator=accumulator*arr[operand];
          printf("\nPress Enter to load the multiplied result in the accumulator");
     }
-    else if(operationCode==40){
-        accumulator=accumulator-arr[operand];
+     else if(operationCode==40){
+         instructionCounter=operand;
+         instructionCounter++;
          printf("\nPress Enter to load the subtracted result in the accumulator");
+    }
+     else if(operationCode==41){
+        if(accumulator<0){
+         instructionCounter=operand;
+         instructionCounter++;
+         printf("\nPress Enter to load the subtracted result in the accumulator");
+        }
+    }
+     else if(operationCode==42){
+        if(accumulator==0){
+         instructionCounter=operand;
+         instructionCounter++;
+         printf("\nPress Enter to load the subtracted result in the accumulator");
+        }
     }
     else if(operationCode==43){
         printf("Program Halt");
