@@ -1,19 +1,7 @@
+#include "simple.h"
 #include <stdio.h>
 #include <stdlib.h>
 #include <stdbool.h>
-
-#define READ 10
-#define WRITE 11
-#define LOAD 20
-#define STORE 21
-#define ADD 30
-#define SUBTRACT 31
-#define DIVIDE 32
-#define MULTIPLY 33
-#define BRANCH 40
-#define BRANCHNEG 41
-#define BRANCHZERO 42
-#define HALT 43
 
 int accumulator = 0;
 int instructionCounter = 0;
@@ -23,12 +11,13 @@ int operationCode = 0;
 int operand = 0;
 int arr[100] = {0};
 int ind = 0;
-int loop=0;
 
-void load() {
-    FILE *file = fopen("C:/Users/Sony/Documents/OS Assignments/Simpletron/SML.txt", "r");
+void load(char smlarr[100]) {
+
+    FILE *file = fopen(smlarr, "r");
     if (file == NULL) {
         printf("Unable to open the file.\n");
+        exit(0);
         return; 
     }
 
@@ -50,7 +39,7 @@ void store() {
 }
 
 void execute() {
-    if (operationCode == READ ) {
+    if (operationCode == READ) {
         int num;
         printf("\nEnter a number : ");
         scanf("%02d", &num);
@@ -136,16 +125,3 @@ void display() {
     instCount = false;
 }
 
-int main() {
-    do {
-        system("cls");
-        printf("\n\n");
-        load();
-        store();
-        display();
-        execute();
-        loop++;
-        getchar();
-    } while (loop != 99);
-    return 0;
-}
